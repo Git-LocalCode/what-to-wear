@@ -1,0 +1,9 @@
+**/bin
+**/obj
+**/.cr
+*.bak
+*.vs
+*.suo
+*.user
+**/Debug
+**/Release
