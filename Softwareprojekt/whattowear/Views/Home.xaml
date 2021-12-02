@@ -1,0 +1,71 @@
+﻿<Page x:Class="whattowear.Views.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:whattowear.Views"
+      xmlns:v="clr-namespace:whattowear.ViewModels"
+      xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+       
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="960"
+      Title="Home">
+
+    
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+       
+
+
+        <Button  Grid.Column="1" Grid.Row="0" Click="Button_Click" Margin="10">Präferenzen</Button>
+
+        <Button  Grid.Column="7" Grid.Row="0" Command="{Binding ButtonCommand}" Margin="10">Activate Key</Button>
+
+        <Button x:Name="Settings" Grid.Column="8" Grid.Row="0"  Margin="10" Background="White">
+            <Image Source="../../../Icons/de.png"/>
+        </Button>
+
+        <TextBox Name="txtCityName" Text="Stadtname eingeben" FontSize="20"
+                 Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+
+        <TextBlock Text="Wetter" Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="5"></TextBlock>
+
+        <TextBlock Text="Vorschlag" Grid.Column="4" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="5"></TextBlock>
+
+        <TextBlock Text="Für Heute Empfohlen:" Grid.Column="4" Grid.Row="3" Grid.ColumnSpan="3" VerticalAlignment="Center" FontSize="20"></TextBlock>
+
+        <TextBlock Text="Tag1" Grid.Column="4" Grid.Row="4" VerticalAlignment="Center" FontSize="20"></TextBlock>
+        <TextBlock Text="Tag2" Grid.Column="5" Grid.Row="4" VerticalAlignment="Center" FontSize="20"></TextBlock>
+        <TextBlock Text="Tag3" Grid.Column="6" Grid.Row="4" VerticalAlignment="Center" FontSize="20"></TextBlock>
+        <TextBlock Text="Tag4" Grid.Column="7" Grid.Row="4" VerticalAlignment="Center" FontSize="20"></TextBlock>
+        <TextBlock Text="Tag5" Grid.Column="8" Grid.Row="4" VerticalAlignment="Center" FontSize="20"></TextBlock>
+
+        <m:Map x:Name="myMap" CredentialsProvider="hK8tzdNQE5SdhVNioLX1~QYLRQaR-Eecz7EV5Xlf07w~Aqd_BBBkmrv4zKeDMPbCpf4mwc3_wUTyddsbd2BatLiebYYfnq2TLuRfVxSB8pN6" 
+               Grid.Column="1" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2" Padding="5"
+               Center="51.340199,12.360103,0.0000" ZoomLevel="5.000" AnimationLevel="None" Mode="AerialWithLabels"/>
+
+
+    </Grid>
+</Page>

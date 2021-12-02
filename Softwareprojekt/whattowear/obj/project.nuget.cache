@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "6cFRJ8sGwAYcctfy7RVfASodY7UAZGDEB5L27oFfOQd2RIl6RkeOWwo7KALkPeBYm7XrATA7OZXMmYyuFj9wyA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\lucat\\source\\repos\\Softwareprojekt\\whattowear\\whattowear.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lucat\\.nuget\\packages\\microsoft.maps.mapcontrol.wpf\\1.0.0.3\\microsoft.maps.mapcontrol.wpf.1.0.0.3.nupkg.sha512",
+    "C:\\Users\\lucat\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Das Paket \"Microsoft.Maps.MapControl.WPF 1.0.0.3\" wurde nicht mit dem Projektzielframework \".NETCoreApp,Version=v3.1\", sondern mit \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
+      "libraryId": "Microsoft.Maps.MapControl.WPF",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
+}

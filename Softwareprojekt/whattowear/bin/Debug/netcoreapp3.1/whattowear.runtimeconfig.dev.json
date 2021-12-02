@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\lucat\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\lucat\\.nuget\\packages"
+    ]
+  }
+}
