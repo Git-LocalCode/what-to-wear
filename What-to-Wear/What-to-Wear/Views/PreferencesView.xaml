@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="What_to_Wear.Views.PreferencesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:What_to_Wear.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1080">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+
+
+        <Button Grid.Column="6" Grid.Row="1" x:Name="SaveCloth"  Margin="15,30"
+                Background="White" MaxHeight="40" MaxWidth="200">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            Kleidung hinzufügen
+        </Button>
+
+        <Button Grid.Column="6" Grid.Row="3" x:Name="DeleteCloth" Margin="15,0"
+                Background="White" MaxHeight="40" MaxWidth="200">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            Kleidung entfernen
+        </Button>
+        
+        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+            <Label>Kleidungsart</Label>
+            <ComboBox x:Name="ClothType" FontSize="20"
+                      SelectedItem="{Binding Path=SelectedType, Mode=OneWayToSource}"
+                      DisplayMemberPath="Type">
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="1" VerticalAlignment="Center">
+            <Label>Kleidungsname</Label>
+            <TextBox x:Name="Name" FontSize="23"></TextBox>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="3" Grid.Row="1" VerticalAlignment="Center">
+            <Label>Temperatur von</Label>
+            <ComboBox x:Name="ClothTempF" FontSize="20"
+                      SelectedItem="{Binding Path=SelectedTempF, Mode=OneWayToSource}"
+                      DisplayMemberPath="TemperatureFrom">
+            </ComboBox>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="4" Grid.Row="1" VerticalAlignment="Center">
+            <Label>Temperatur bis</Label>
+            <ComboBox x:Name="ClothTempT" FontSize="20"
+                      SelectedItem="{Binding Path=SelectedTempT, Mode=OneWayToSource}"
+                      DisplayMemberPath="TemperatureTill">
+            </ComboBox>
+
+        </StackPanel>
+
+        <CheckBox x:Name="IsWaterproof" Content="Ist Wasserfest" Grid.Row="1" Grid.Column="5"
+                  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="8" Background="Black"/>
+
+        <TextBlock Text="Kleiderliste:" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" 
+                   VerticalAlignment="Bottom" FontSize="20"/>
+        <ListBox x:Name="ClothList" ItemsSource="{Binding Path=ListCloth, Mode=OneWay}" 
+                 SelectedItem="{Binding Path=SelectedCloth, Mode=OneWayToSource}"
+                 Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="6" Grid.RowSpan="3"
+                 DisplayMemberPath="Cloth"/>
+
+    </Grid>
+</UserControl>

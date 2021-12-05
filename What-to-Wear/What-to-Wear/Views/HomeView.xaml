@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="What_to_Wear.Views.HomeView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:controls="clr-namespace:Microsoft.Toolkit.Wpf.UI.Controls;assembly=Microsoft.Toolkit.Wpf.UI.Controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="960" >
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="2" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="4" Grid.Row="1" Grid.RowSpan="7" Background="Black"/>
+
+
+        <TextBox x:Name="TxtCityName" FontSize="20"
+                 Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center">
+
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+
+
+        <TextBlock Text="Für Heute Empfohlen:" Grid.Column="6" Grid.Row="3" Grid.ColumnSpan="3" VerticalAlignment="Bottom" FontSize="20"></TextBlock>
+
+        <TextBlock x:Name="DayOne" Text="{Binding Path=DayOne, Mode=OneWay}" Grid.Column="6" Grid.Row="4" VerticalAlignment="Center" FontSize="20"></TextBlock>
+        <TextBlock x:Name="DayTwo" Text="{Binding Path=DayTwo, Mode=OneWay}" Grid.Column="7" Grid.Row="4" VerticalAlignment="Center" FontSize="20"></TextBlock>
+        <TextBlock x:Name="DayThree" Text="{Binding Path=DayThree, Mode=OneWay}" Grid.Column="8" Grid.Row="4" VerticalAlignment="Center" FontSize="20"></TextBlock>
+        <TextBlock x:Name="DayFour" Text="{Binding Path=DayFour, Mode=OneWay}" Grid.Column="9" Grid.Row="4" VerticalAlignment="Center" FontSize="20"></TextBlock>
+        <TextBlock x:Name="DayFive" Text="{Binding Path=DayFive, Mode=OneWay}" Grid.Column="10" Grid.Row="4" VerticalAlignment="Center" FontSize="20"></TextBlock>
+
+        <controls:MapControl Grid.Column="1" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2"
+                             MapServiceToken="hK8tzdNQE5SdhVNioLX1~QYLRQaR-Eecz7EV5Xlf07w~Aqd_BBBkmrv4zKeDMPbCpf4mwc3_wUTyddsbd2BatLiebYYfnq2TLuRfVxSB8pN6"
+                             MapDoubleTapped="mapControl_MapDoubleTapped"/>
+
+
+    </Grid>
+</UserControl>
