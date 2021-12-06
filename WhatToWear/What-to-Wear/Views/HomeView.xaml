@@ -1,0 +1,116 @@
+﻿<UserControl x:Class="What_to_Wear.Views.HomeView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:controls="clr-namespace:Microsoft.Toolkit.Wpf.UI.Controls;assembly=Microsoft.Toolkit.Wpf.UI.Controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="960" >
+
+    <Grid x:Name="Hagrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="2" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        <Border Grid.Column="5" Grid.ColumnSpan="7" Grid.Row="0" Grid.RowSpan="7" Background="LightGray"></Border>
+        <TextBlock Grid.Column="4" Grid.Row="1" Grid.RowSpan="7" Background="Black"/>
+
+
+        <TextBox x:Name="TxtCityName" FontSize="20"
+                 Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" IsReadOnly="True">
+
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+
+        <TextBlock x:Name="WeatherOne" Grid.Column="6" Grid.Row="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0"></TextBlock>
+        <TextBlock x:Name="WeatherTwo" Grid.Column="7" Grid.Row="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0"></TextBlock>
+        <TextBlock x:Name="WeatherThree" Grid.Column="8" Grid.Row="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0"></TextBlock>
+        <TextBlock x:Name="WeatherFour" Grid.Column="9" Grid.Row="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0"></TextBlock>
+        <TextBlock x:Name="WeatherFive" Grid.Column="10" Grid.Row="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0"></TextBlock>
+
+        <TextBlock x:Name="DayOne" Text="{Binding Path=DayOne, Mode=OneWay}" Grid.Column="6" Grid.Row="4" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock x:Name="DayTwo" Text="{Binding Path=DayTwo, Mode=OneWay}" Grid.Column="7" Grid.Row="4" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock x:Name="DayThree" Text="{Binding Path=DayThree, Mode=OneWay}" Grid.Column="8" Grid.Row="4" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock x:Name="DayFour" Text="{Binding Path=DayFour, Mode=OneWay}" Grid.Column="9" Grid.Row="4" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock x:Name="DayFive" Text="{Binding Path=DayFive, Mode=OneWay}" Grid.Column="10" Grid.Row="4" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"></TextBlock>
+        <Grid Grid.Column="6" Grid.Row="5" x:Name="GridOne">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid Grid.Column="7" Grid.Row="5" x:Name="GridTwo">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid Grid.Column="8" Grid.Row="5" x:Name="GridThree">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid Grid.Column="9" Grid.Row="5" x:Name="GridFour">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid Grid.Column="10" Grid.Row="5" x:Name="GridFive">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+        </Grid>
+        <controls:MapControl Grid.Column="1" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2"
+                             MapServiceToken="hK8tzdNQE5SdhVNioLX1~QYLRQaR-Eecz7EV5Xlf07w~Aqd_BBBkmrv4zKeDMPbCpf4mwc3_wUTyddsbd2BatLiebYYfnq2TLuRfVxSB8pN6"
+                             MapTapped="mapControl_MapDoubleTapped" x:Name="Map"/>
+        <Image Grid.Column="6" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" x:Name="WeatherIconOne"/>
+        <Image Grid.Column="7" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" x:Name="WeatherIconTwo"/>
+        <Image Grid.Column="8" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" x:Name="WeatherIconThree"/>
+        <Image Grid.Column="9" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" x:Name="WeatherIconFour"/>
+        <Image Grid.Column="10" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" x:Name="WeatherIconFive"/>
+
+
+        
+    </Grid>
+</UserControl>
