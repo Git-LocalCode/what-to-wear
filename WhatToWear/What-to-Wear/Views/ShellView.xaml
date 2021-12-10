@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:What_to_Wear.Views"
         mc:Ignorable="d"
-        Title="What-To-Wear" Height="600" Width="1080">
+        Title="What-To-Wear" Height="600" Width="1080" Icon="/Views/clothing-icon-png-4.ico"
+        >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />

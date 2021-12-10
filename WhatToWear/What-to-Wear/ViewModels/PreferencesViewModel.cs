@@ -1,7 +1,9 @@
 ﻿using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Windows;
 using What_to_Wear.Models;
 using WhatToWear.Data.Clothing;
 using WhatToWear.Logic.Preferences;
@@ -197,9 +199,25 @@ namespace What_to_Wear.ViewModels
 
         public void SaveCloth(string _type, string _name, int _temperatureFrom = 0, int _temperatureTill = 0, bool _isWaterproof = false)
         {
-            int tempt = Convert.ToInt32(SelectedTempT.TemperatureTill.Remove(SelectedTempT.TemperatureTill.IndexOf("°")));
-            int tempf = Convert.ToInt32(SelectedTempF.TemperatureFrom.Remove(SelectedTempF.TemperatureFrom.IndexOf("°")));
-            if (String.IsNullOrEmpty(SelectedType.Type) || String.IsNullOrEmpty(Name) || tempf > tempt)
+            int tempt = 0;
+            int tempf = 1;
+            if (SelectedType is null)
+                MessageBox.Show("Please Select a Clothing Type", "Could not create Clothing", MessageBoxButton.OK, MessageBoxImage.Error);
+            else if (String.IsNullOrEmpty(Name))
+                MessageBox.Show("Please Enter a Name", "Could not create Clothing", MessageBoxButton.OK, MessageBoxImage.Error);
+            else if (SelectedTempF is null || SelectedTempT is null)
+                MessageBox.Show("Please Select a Temperature Range", "Could not create Clothing", MessageBoxButton.OK, MessageBoxImage.Error);
+            else
+            {
+                tempt = Convert.ToInt32(SelectedTempT.TemperatureTill.Remove(SelectedTempT.TemperatureTill.IndexOf("°")));
+                tempf = Convert.ToInt32(SelectedTempF.TemperatureFrom.Remove(SelectedTempF.TemperatureFrom.IndexOf("°")));
+
+                if (tempf > tempt)
+                        MessageBox.Show("Minimum Temperature is higher than Maximum Temperature", "Could not create Clothing", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            
+            if (SelectedType is null || String.IsNullOrEmpty(Name) || tempf > tempt)
                 return;
 
             Article newArticle = new Article();
@@ -207,19 +225,17 @@ namespace What_to_Wear.ViewModels
             newArticle.Type = _TypePairing[SelectedType.Type];
             newArticle.Temperatures.TemperatureMax = tempt;
             newArticle.Temperatures.TemperatureMin = tempf;
-            _ClothingArticles.Add(newArticle);
-            PreferencesHandler.SavePreferences(PreferencesHandler.ParsePreferences(_ClothingArticles));
 
-            string Cloth = "";
-            if (IsWaterproof == true)
+            if(_ClothingArticles.Contains(newArticle))
             {
-                Cloth = SelectedType.Type + ": " + Name + ", " + SelectedTempF.TemperatureFrom + " to" + SelectedTempT.TemperatureTill + ", Waterproof";
+                MessageBox.Show($"{newArticle.Name} already exists", "Duplicate Clothing", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
-            else
-            {
-                Cloth = SelectedType.Type + ", " + Name + ": " + SelectedTempF.TemperatureFrom + " to" + SelectedTempT.TemperatureTill + ", not Waterproof";
-            }
-            ListCloth.Add(new ListModel { Cloth = Cloth, ID = _ClothingArticles.IndexOf(newArticle) });
+
+            _ClothingArticles.Add(newArticle);
+            _ClothingArticles = _ClothingArticles.OrderBy(x => x.Type).ThenBy(x => x.Name).ToList();
+            PreferencesHandler.SavePreferences(PreferencesHandler.ParsePreferences(_ClothingArticles));
+            LoadList();
         }
 
         public void DeleteCloth()
@@ -228,7 +244,7 @@ namespace What_to_Wear.ViewModels
                 return;
             _ClothingArticles.RemoveAt(SelectedCloth.ID);
             PreferencesHandler.SavePreferences(PreferencesHandler.ParsePreferences(_ClothingArticles));
-            ListCloth.RemoveAt(ListCloth.IndexOf(SelectedCloth));
+            LoadList();
         }
 
         public ListModel SelectedCloth
@@ -244,6 +260,17 @@ namespace What_to_Wear.ViewModels
         {
             get { return _listCloth; }
             set { _listCloth = value; }
+        }
+
+        private void LoadList()
+        {
+            _listCloth.Clear();
+            _ClothingArticles = PreferencesHandler.ParsePreferences(PreferencesHandler.GetPreferences());
+            foreach (var article in _ClothingArticles)
+            {
+                int index = _ClothingArticles.IndexOf(article);
+                _listCloth.Add(new ListModel() { Cloth = article.ToString(), ID = index });
+            }
         }
     }
 }

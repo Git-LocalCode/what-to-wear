@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
@@ -74,6 +75,7 @@ namespace What_to_Wear.Views
                     ComboBox clothing = new ComboBox();
                     currentGrid.Children.Add(clothing);
                     Grid.SetRow(clothing, j);
+                    recommendation[j] = recommendation[j].GroupBy(x => x.Name).Select(x => x.First()).ToList();
                     foreach(var recom in recommendation[j])
                     {
                         clothing.Items.Add(recom.Name);

@@ -9,6 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="clothing-icon-png-4.ico" />
+    <None Remove="Views\clothing-icon-png-4.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="clothing-icon-png-4.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\clothing-icon-png-4.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Caliburn.Micro" Version="4.0.173" />
     <PackageReference Include="Microsoft.Toolkit.Wpf.UI.Controls" Version="6.1.2" />
   </ItemGroup>

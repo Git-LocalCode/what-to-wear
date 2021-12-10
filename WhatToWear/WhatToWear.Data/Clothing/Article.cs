@@ -44,5 +44,16 @@ namespace WhatToWear.Data.Clothing
                 return "Waterproof";
             return "not Waterproof";
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is null)
+                return base.Equals(obj);
+            if (!(obj is Article))
+                return base.Equals(obj);
+
+            Article compare = obj as Article;
+            return compare.Name == Name && compare.Type == Type && compare.Temperatures.TemperatureMin == Temperatures.TemperatureMin && compare.Temperatures.TemperatureMax == Temperatures.TemperatureMax && compare.IsWaterproof == IsWaterproof;
+        }
     }
 }
